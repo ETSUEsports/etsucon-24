@@ -1,0 +1,124 @@
+{
+  "name": "etsucon-24",
+  "version": "0.0.0",
+  "description": "ETSU Esports Tri Cities Slam for ETSUCON24",
+  "homepage": "https://www.github.com/ETSUEsports/etsucon-24",
+  "author": {
+    "name": "Russell Payne",
+    "email": "payner3@etsu.edu",
+    "url": "https://portfolio.ryois.me"
+  },
+  "files": [
+    "dashboard",
+    "graphics",
+    "extension.js",
+    "extension"
+  ],
+  "keywords": [
+    "",
+    "nodecg-bundle"
+  ],
+  "nodecg": {
+    "compatibleRange": "^2.0.0",
+    "dashboardPanels": [
+      {
+        "name": "general",
+        "title": "General",
+        "fullbleed": true,
+        "file": "general.html",
+        "headerColor": "#525F78"
+      },
+      {
+        "name": "overwatch",
+        "title": "Overwatch",
+        "fullbleed": true,
+        "file": "overwatch.html",
+        "headerColor": "#FA9C1D"
+      },
+      {
+        "name": "overwatch_new_team",
+        "title": "New Team",
+        "width": 3,
+        "dialog": true,
+        "dialogButtons": [
+          {
+            "name": "save",
+            "type": "confirm"
+          },
+          {
+            "name": "cancel",
+            "type": "dismiss"
+          }
+        ],
+        "file": "overwatch-new-team.html"
+      },
+      {
+        "name": "valorant",
+        "title": "VALORANT",
+        "fullbleed": true,
+        "file": "valorant.html",
+        "headerColor": "#FF4454"
+      },
+      {
+        "name": "rl",
+        "title": "Rocket League",
+        "fullbleed": true,
+        "file": "rl.html",
+        "headerColor": "#0054AB"
+      }
+    ],
+    "graphics": [
+      {
+        "file": "index.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "ow-ingame.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "ow-mapselect.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      }
+    ],
+    "assetCategories": [
+      {
+        "name": "ow-team-logos",
+        "title": "Square logos",
+        "allowedTypes": [
+          "jpg",
+          "jpeg",
+          "gif",
+          "png"
+        ]
+      },
+      {
+        "name": "ow-ads",
+        "title": "Ads (270px x 75px)",
+        "allowedTypes": ["png"]
+      }
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "license": "MIT",
+  "dependencies": {
+    "multer": "^1.4.5-lts.1"
+  }
+}

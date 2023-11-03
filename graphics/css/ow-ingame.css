@@ -1,0 +1,165 @@
+:root {
+    --blue: #27D4FC;
+    --red: #EE2F51;
+    --transparent-black: rgba(0, 0, 0, 0.8);
+    --name-ad: 411px;
+    --name-score: 465px;
+}
+@font-face {
+    font-family: Fyrste;
+    src: url("../fonts/fyrste.ttf") format("truetype");
+}
+body {
+    font-family: Fyrste;
+}
+
+.monospace {
+    font-family: monospace;
+}
+#overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-image: urL("../ingameimg/overwatch.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: row;
+}
+#left{
+    position: absolute;
+    top: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: left;
+}
+#center{
+    position: absolute;
+    top: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+}
+#right{
+    position: absolute;
+    top: 12px;
+    right: 0;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-end;
+    justify-content: right;
+}
+div.name {
+    height: 50px;
+    width: var(--name-ad);
+    text-transform: lowercase;
+    font-size: 40px;
+    line-height: 46px;
+    transition:cubic-bezier(1, 0, 0, 1) 0.5s;
+    transition-timing-function: ease-in-out;
+    z-index:5;
+}
+div.name > span{
+    margin-right: 2px;
+    margin-left: 2px;
+    text-shadow: 2px 2px 1px #000000;
+}
+#left > div.name {
+    background-color: var(--blue);
+    text-align: right;
+    color: #ffffff;
+}
+#right > div.name {
+    background-color: var(--red);
+    text-align: left;
+    color: #ffffff;
+}
+div.logo {
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
+}
+div.logo > img {
+    height: 45px;
+    width: 45px;
+}
+#left > div.logo {
+    background-color: var(--blue);
+}
+#right > div.logo {
+    background-color: var(--red);
+}
+div.score {
+    background-color: #ffffff;
+    color: #000000;
+    height: 50px;
+    width: 54px;
+    font-size: 50px;
+    text-align: center;
+    line-height: 46px;
+}
+div.attack_defend_icon {
+    background-color: #000000;
+    color: #ffffff;
+    height: 50px;
+    width: 54px;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    z-index: 3;
+}
+div.attack_defend_icon.attack {
+    background-image: urL("../img/ow/attack.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 45px 45px;
+}
+div.attack_defend_icon.defend {
+    background-image: urL("../img/ow/defend.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 45px 45px;
+}
+div.match_stats{
+    background-color: var(--transparent-black);
+    border-radius: 1px;
+    height: 22px;
+    width: 160px;
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+}
+#left-score-transition{
+    width: 569px;
+    height: 0;
+    background-color: #f06614;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transition: height 0.5s, width 0.5s, background-color 0.5s;
+    transition-timing-function: ease-in-out;
+    z-index: 1;
+}
+#right-score-transition{
+    width: 569px;
+    height: 0;
+    background-color: #f06614;
+    position: absolute;
+    top: 0;
+    right: 0;
+    overflow: hidden;
+    transition: height 0.5s, width 0.5s, background-color 0.5s;
+    transition-timing-function: ease-in-out;
+    z-index: 1;
+}

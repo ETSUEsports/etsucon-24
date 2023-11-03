@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+		<link rel="stylesheet" href="./css/overwatch.css" />
+	</head>
+	<body>
+		<div id="root">
+		<form id="owForm">
+			<div class="container">
+				<div class="row">
+					<div class="col-8">
+						<div class="row">
+							<div class="col-5">
+								<h2>Left Team</h2>
+								<div class="form-group">
+									<label for="leftName">Name</label>
+									<input type="text" class="form-control" id="leftName" placeholder="Name">
+								</div>
+								<div class="form-group">
+									<label for="leftLogo">Logo</label>
+									<input type="text" class="form-control" id="leftLogo">
+								</div>
+								<div class="form-group">
+									<label for="leftColor">Color</label>
+									<input type="text" class="form-control" id="leftColor">
+								</div>
+								<div class="form-group">
+									<label for="leftScore">Score</label>
+									<input type="number" class="form-control score-input" id="leftScore">
+								</div>
+							</div>
+							<div class="col-2">
+								<h5>Swap Sides</h5>
+								<button id="swapSides" type="button" class="btn btn-primary">Swap</button>
+							</div>
+							<div class="col-5">
+								<h2>Right Team</h2>
+								<div class="form-group">
+									<label for="rightName">Name</label>
+									<input type="text" class="form-control" id="rightName" placeholder="Name">
+								</div>
+								<div class="form-group">
+									<label for="rightLogo">Logo</label>
+									<input type="text" class="form-control" id="rightLogo">
+								</div>
+								<div class="form-group">
+									<label for="rightColor">Color</label>
+									<input type="text" class="form-control" id="rightColor">
+								</div>
+								<div class="form-group">
+									<label for="rightScore">Score</label>
+									<input type="number" class="form-control score-input" id="rightScore">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-4">
+						<h2>Team Library</h2>
+						<div id="teamList"></div>
+						<button class="btn btn-primary" id="add_team_btn" nodecg-dialog="overwatch_new_team" name="action">Add Team</button>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-2">
+						<h2>Match Details</h2>
+						<div class="form-group">
+							<label for="matchAttacker">Attacker</label>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="attackerRadio" id="attackerRadio1" value="left">
+								<label class="form-check-label" for="attackerRadio1">
+								  Left Team
+								</label>
+							  </div>
+							  <div class="form-check">
+								<input class="form-check-input" type="radio" name="attackerRadio" id="attackerRadio2" value="right">
+								<label class="form-check-label" for="attackerRadio2">
+								  Right Team
+								</label>
+							  </div>
+						</div>
+						<div class="form-group">
+							<label for="matchMapNum">Map Number</label>
+							<div class="input-group">
+								<input type="number" class="form-control score-input" id="matchMapNum">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="matchBO">Best Of</label>
+							<div class="input-group">
+								<input type="number" class="form-control score-input" id="matchBO">
+							</div>
+						</div>
+					</div>
+					<div class="col-10">
+						<h2>Map Selection</h2>
+						<div class="row">
+							<div class="col">
+								<h4>Map 1</h4>
+								<div class="form-group">
+									<label for="map1tba" class="form-label">TBA?</label>
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" value="true" id="map1tba" checked>
+										<label class="form-check-label" for="map1tba">Yes, map details TBA</label>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="map1inprogress" class="form-label">In Progress?</label>
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" value="true" id="map1inprogress" checked>
+										<label class="form-check-label" for="map1inprogress">Yes, map is in progress</label>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="map1mode" class="form-label">Mode</label>
+									<select class="form-select" id="map1mode">
+										<option value="control" selected>Control</option>
+										<option value="hybrid">Hybrid</option>
+										<option value="flash">Flashpoint</option>
+										<option value="push">Push</option>
+										<option value="escort">Escort</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="map1selection" class="form-label">Map Selection</label>
+									<select class="form-select" id="map1selection">
+									</select>
+								</div>
+								<div class="form-group">
+									<label class="form-label">Map Score</label>
+									<div class="input-group">
+										<input type="number" class="form-control" id="map1leftScore" placeholder="Left" aria-label="Left Score">
+										<span class="input-group-text">-</span>
+										<input type="number" class="form-control" id="map1rightScore" placeholder="Right" aria-label="Right Score">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="map1winner" class="form-label">Winning Team</label>
+									<select class="form-select" id="map1winner">
+										<option value="none" selected>None</option>
+										<option value="left">Left Team</option>
+										<option value="right">Right Team</option>
+									</select>
+								</div>
+							</div>
+							<div class="col">
+								<h4>Map 2</h4>
+								<div class="form-group">
+									<label for="map2tba" class="form-label">TBA?</label>
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" value="true" id="map2tba" checked>
+										<label class="form-check-label" for="map2tba">Yes, map details TBA</label>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="map2inprogress" class="form-label">In Progress?</label>
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" value="true" id="map2inprogress" checked>
+										<label class="form-check-label" for="map2inprogress">Yes, map is in progress</label>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="map2mode" class="form-label">Mode</label>
+									<select class="form-select" id="map2mode">
+										<option value="control">Control</option>
+										<option value="hybrid" selected>Hybrid</option>
+										<option value="flash">Flashpoint</option>
+										<option value="push">Push</option>
+										<option value="escort">Escort</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="map2selection" class="form-label">Map Selection</label>
+									<select class="form-select" id="map2selection">
+									</select>
+								</div>
+								<div class="form-group">
+									<label class="form-label">Map Score</label>
+									<div class="input-group">
+										<input type="number" class="form-control" id="map2leftScore" placeholder="Left" aria-label="Left Score">
+										<span class="input-group-text">-</span>
+										<input type="number" class="form-control" id="map2rightScore" placeholder="Right" aria-label="Right Score">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="map2winner" class="form-label">Winning Team</label>
+									<select class="form-select" id="map2winner">
+										<option value="none" selected>None</option>
+										<option value="left">Left Team</option>
+										<option value="right">Right Team</option>
+									</select>
+								</div>
+							</div>
+							<div class="col">
+								<h4>Map 3</h4>
+								<div class="form-group">
+									<label for="map3tba" class="form-label">TBA?</label>
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" value="true" id="map3tba" checked>
+										<label class="form-check-label" for="map3tba">Yes, map details TBA</label>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="map3inprogress" class="form-label">In Progress?</label>
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" value="true" id="map3inprogress" checked>
+										<label class="form-check-label" for="map3inprogress">Yes, map is in progress</label>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="map3mode" class="form-label">Mode</label>
+									<select class="form-select" id="map3mode">
+										<option value="control">Control</option>
+										<option value="hybrid">Hybrid</option>
+										<option value="flash" selected>Flashpoint</option>
+										<option value="push">Push</option>
+										<option value="escort">Escort</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="map3selection" class="form-label">Map Selection</label>
+									<select class="form-select" id="map3selection">
+									</select>
+								</div>
+								<div class="form-group">
+									<label class="form-label">Map Score</label>
+									<div class="input-group">
+										<input type="number" class="form-control" id="map3leftScore" placeholder="Left" aria-label="Left Score">
+										<span class="input-group-text">-</span>
+										<input type="number" class="form-control" id="map3rightScore" placeholder="Right" aria-label="Right Score">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="map3winner" class="form-label">Winning Team</label>
+									<select class="form-select" id="map3winner">
+										<option value="none" selected>None</option>
+										<option value="left">Left Team</option>
+										<option value="right">Right Team</option>
+									</select>
+								</div>
+							</div>
+							<div class="col">
+								<h4>Map 4</h4>
+								<div class="form-group">
+									<label for="map4tba" class="form-label">TBA?</label>
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" value="true" id="map4tba" checked>
+										<label class="form-check-label" for="map4tba">Yes, map details TBA</label>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="map4inprogress" class="form-label">In Progress?</label>
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" value="true" id="map4inprogress" checked>
+										<label class="form-check-label" for="map4inprogress">Yes, map is in progress</label>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="map4mode" class="form-label">Mode</label>
+									<select class="form-select" id="map4mode">
+										<option value="control">Control</option>
+										<option value="hybrid">Hybrid</option>
+										<option value="flash">Flashpoint</option>
+										<option value="push" selected>Push</option>
+										<option value="escort">Escort</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="map4selection" class="form-label">Map Selection</label>
+									<select class="form-select" id="map4selection">
+									</select>
+								</div>
+								<div class="form-group">
+									<label class="form-label">Map Score</label>
+									<div class="input-group">
+										<input type="number" class="form-control" id="map4leftScore" placeholder="Left" aria-label="Left Score">
+										<span class="input-group-text">-</span>
+										<input type="number" class="form-control" id="map4rightScore" placeholder="Right" aria-label="Right Score">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="map4winner" class="form-label">Winning Team</label>
+									<select class="form-select" id="map4winner">
+										<option value="none" selected>None</option>
+										<option value="left">Left Team</option>
+										<option value="right">Right Team</option>
+									</select>
+								</div>
+							</div>
+							<div class="col">
+								<h4>Map 5</h4>
+								<div class="form-group">
+									<label for="map5tba" class="form-label">TBA?</label>
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" value="true" id="map5tba" checked>
+										<label class="form-check-label" for="map5tba">Yes, map details TBA</label>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="map5inprogress" class="form-label">In Progress?</label>
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" value="true" id="map5inprogress" checked>
+										<label class="form-check-label" for="map5inprogress">Yes, map is in progress</label>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="map5mode" class="form-label">Mode</label>
+									<select class="form-select" id="map5mode">
+										<option value="control">Control</option>
+										<option value="hybrid">Hybrid</option>
+										<option value="flash">Flashpoint</option>
+										<option value="push">Push</option>
+										<option value="escort" selected>Escort</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="map5selection" class="form-label">Map Selection</label>
+									<select class="form-select" id="map5selection">
+									</select>
+								</div>
+								<div class="form-group">
+									<label class="form-label">Map Score</label>
+									<div class="input-group">
+										<input type="number" class="form-control" id="map5leftScore" placeholder="Left" aria-label="Left Score">
+										<span class="input-group-text">-</span>
+										<input type="number" class="form-control" id="map5rightScore" placeholder="Right" aria-label="Right Score">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="map5winner" class="form-label">Winning Team</label>
+									<select class="form-select" id="map5winner">
+										<option value="none" selected>None</option>
+										<option value="left">Left Team</option>
+										<option value="right">Right Team</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+				<div class="row">
+					<div class="col-sm">
+						<h2>Update</h2>
+						<button id="updateReplicants" type="button" class="btn btn-success">Update</button>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm">
+						<h2>Reset</h2>
+						<button id="resetReplicants" type="button" class="btn btn-danger">Reset</button>
+						<button id="deleteAllTeams" type="button" class="btn btn-danger">Delete All Teams</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="errorModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+			  <div class="modal-content">
+				<div class="modal-header bg-danger">
+				  <h5 class="modal-title" id="errorModalLabel">Error Updating:</h5>
+				  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				  </button>
+				</div>
+				<div class="modal-body" id="errorModalBody">
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+				</div>
+			  </div>
+			</div>
+		</div>
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+		<script src="./js/overwatch.js"></script>
+	</body>
+</html>

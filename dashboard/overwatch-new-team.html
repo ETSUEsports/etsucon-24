@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<style>
+        body{
+            background-color: #2F3A4F;
+            color: #ffffff;
+        }
+        :root {
+            --etsu-primary-navy: #041E42;
+            --etsu-primary-gold: #FFC72C;
+            --ow-primary-blue: #28BBDF;
+            --ow-primary-red: #DA2623;
+            font-variant-numeric: tabular-nums;
+        }
+		.team {
+			padding: 5px;
+			margin-top: 10px;
+		}
+		b{
+			font-size: 20px;
+		}
+		input{
+			color: #ffffff;
+		}
+		.big_label{
+			font-size: 15px;
+			color: #ffffff;
+		}
+		.yellow{
+			color: #000000;
+		}
+		.buttons{
+			margin-right: 5px;
+		}
+		.select-dropdown{
+			background-color: #232C3D;
+		}
+		.select-dropdown li.disabled>span{
+			color: #7f7f7f !important;
+		}
+		.select-dropdown li>span{
+			color: #ffffff !important;
+		}
+        .card-content{
+            padding-top: 0px !important;
+            color: #ffffff;
+        }
+        .card.small{
+            height: 135px;
+            width: 200px;
+            background-color: #232C3D;
+        }
+        .card-action, .card-image{
+            background-color: #232C3D !important;
+        }   
+        .team-blue{
+            background-color: var(--ow-primary-blue) !important;
+            color: #000000;
+        }
+        .team-red{
+            background-color: var(--ow-primary-red) !important;
+        }
+        .active-blue{
+            background-color: var(--ow-primary-blue) !important;
+            color: #000000;
+            height: 90px !important;
+        }
+        .active-red{
+            background-color: var(--ow-primary-red) !important;
+            height: 90px !important;
+        }
+        .cards-container {
+            column-break-inside: avoid;
+        }
+        .cards-container .card {
+            display: inline-block;
+            overflow: visible;
+        }
+        .cards-container {
+            -webkit-column-count: 3;
+            -moz-column-count: 3;
+            column-count: 3;
+        }
+        #active_blue_team > div.card-content > p {
+            color: #000000;
+        }
+	</style>
+</head>
+<body>
+    <div>
+        <div class="row">
+            <form id="new_team" enctype="multipart/form-data">
+                <div class="mb-3 col-12">
+                    <label for="name" class="form-label">Team Name</label>
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+                <div class="mb-3 col-12">
+                    <label for="logo" class="form-label">Logo</label>
+                    <input type="file" class="form-control" id="logo" name="file">
+                </div>
+                <div class="mb-3 col-12">
+                    <label for="color" class="form-label">Team Color</label>
+                    <input type="text" class="form-control" id="color" name="color">
+                </div>
+                <div class="mb-3 col-12">
+                    <button class="btn btn-primary" type="submit" name="action">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+	<script>
+        $("#new_team").submit(function(e) {
+            e.preventDefault(); // avoid to execute the actual submit of the form.
+            var form = $(this);
+            var fd = new FormData();    
+            fd.append( 'file', $('#logo').prop('files')[0] );
+            fd.append( 'name', $('#name').val() );
+            fd.append( 'color', $('#color').val() );
+            $.ajax({
+                        type: "POST",
+                        url: '/etsucon-24/ow/team',
+                        data: fd,
+                        processData: false,
+                        contentType: false,
+                        success: function(data){
+                            alert(`Added team ${data.name}`);
+                    }
+                    });
+
+        });
+    </script>
+</body>
+</html>

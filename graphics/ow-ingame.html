@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" href="./css/ow-ingame.css" />
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+		<script type="module" src="./js/ow-ingame.js"></script>
+	</head>
+	<body>
+		<div id="overlay">
+			<div id="left">
+				<div class="name">
+					<span id="left_name_text">ETSU Buccaneers</span>
+				</div>
+				<div class="logo">
+					<img id="left_logo_img" src="./ingameimg/etsu_bucky.png"/>
+				</div>
+				<div class="score">
+					<span id="left_score_text">0</span>
+				</div>
+				<div id="left-score-transition" class="score-transition-box"></div>
+				<div id="left_attack_defend" class="attack_defend_icon attack"></div>
+			</div>
+			<div id="center">
+				<div class="match_stats">
+					<span>map <span id="match_stats_map_number">1</span> - best of <span id="match_stats_best_of">3</span></span>
+				</div>
+			</div>
+			<div id="right">
+				<div class="name">
+					<span id="right_name_text">ETSU Buccaneers</span>
+				</div>
+				<div class="logo">
+					<img id="right_logo_img" src="./ingameimg/etsu_bucky.png"/>
+				</div>
+				<div class="score">
+					<span id="right_score_text">0</span>
+				</div>
+				<div id="right-score-transition" class="score-transition-box"></div>
+				<div id="right_attack_defend" class="attack_defend_icon defend"></div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,247 @@
+:root {
+    --blue: #27D4FC;
+    --red: #EE2F51;
+    --transparent-black: rgba(0, 0, 0, 0.8);
+    --name-ad: 411px;
+    --name-score: 465px;
+}
+
+@font-face {
+    font-family: Fyrste;
+    src: url("../fonts/fyrste.ttf") format("truetype");
+}
+
+body {
+    font-family: Fyrste;
+    font-weight: normal !important;
+}
+
+#mapselect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/mapselect/mapselect-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 1);
+    z-index: 1;
+}
+
+#maps {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    width: 1800px;
+    height: 800px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    z-index: 2;
+}
+
+.map {
+    position: relative;
+    width: 340px;
+    margin: 0 20px;
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    z-index: 2;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.4);
+    -webkit-transition: width 1s ease-in-out;
+    -moz-transition: width 1s ease-in-out;
+    -o-transition: width 1s ease-in-out;
+    transition: width 1s ease-in-out;
+}
+
+.winnerlogo {
+    position: absolute;
+    top: 50px;
+    width: 300px;
+    height: 300px;
+    transition: visibility 0.3s linear, opacity 0.3s linear, width 0.3s linear, height 0.3s linear;
+}
+
+.logoHidden {
+    opacity: 0 !important;
+}
+
+.logoVisible {
+    opacity: 1 !important;
+}
+
+.score {
+    position: absolute;
+    top: 225px;
+    width: 300px;
+    height: 300px;
+    font-size: 150px;
+    color: white;
+    text-align: center;
+    transition: visibility 0.3s linear, opacity 0.3s linear;
+}
+
+.winnerName {
+    position: absolute;
+    top: 400px;
+    width: 300px;
+    height: 300px;
+    font-size: 75px;
+    color: white;
+    text-align: center;
+    text-transform: lowercase;
+    transition: visibility 0.3s linear, opacity 0.3s linear;
+}
+
+.bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 125px;
+    background-color: #ffffff;
+    display: flex;
+    z-index: 2;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-transform: lowercase;
+    align-items: center;
+}
+
+.mapName {
+    position: absolute;
+    margin: 0 0px;
+    font-size: 55px;
+    color: #000000;
+    text-align: center;
+    top: 40%;
+    transform: translate(0%, -50%);
+    transition: visibility 0.3s linear, opacity 0.3s linear, font-size 0.3s linear;
+}
+
+.mapMode {
+    position: absolute;
+    bottom: 2px;
+    margin: 0 0px;
+    font-size: 20px;
+    color: #ffffff;
+    z-index: 4;
+    text-align: center;
+    transition: visibility 0.3s linear, opacity 0.3s linear;
+}
+
+.bottomBar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 22px;
+    background-color: #000000;
+    display: flex;
+    z-index: 0;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.tba>.winnerlogo {
+    opacity: 0 !important;
+}
+
+.tba>.score {
+    opacity: 0 !important;
+}
+
+.tba>.winnerName {
+    opacity: 0 !important;
+}
+
+.tba>.bottom {
+    opacity: 1 !important;
+}
+
+.tba>.bottomBar {
+    opacity: 1 !important;
+}
+
+.tba>.mapName {
+    opacity: 0 !important;
+}
+
+.tba>.mapMode {
+    opacity: 0 !important;
+}
+
+.inprogress.map{
+    animation: panning 90s linear infinite alternate;
+}
+
+.inprogress>.winnerlogo {
+    opacity: 0 !important;
+}
+
+.inprogress>.score {
+    opacity: 0 !important;
+}
+
+.inprogress>.winnerName {
+    opacity: 0 !important;
+}
+
+.map.tba {
+    box-shadow: none !important;
+}
+
+.inprogress {
+    position: relative;
+    width: 600px;
+    margin: 0 20px;
+    height: 800px;
+}
+
+.hasOtherInProgress {
+    position: relative;
+    width: 275px;
+    margin: 0 20px;
+    height: 800px;
+}
+
+.hasOtherInProgress>.winnerlogo {
+    width: 250px !important;
+    height: 250px !important;
+}
+
+.hasOtherInProgress>.score {
+    font-size: 125px !important;
+}
+
+.hasOtherInProgress>.winnerName {
+    font-size: 50px !important;
+}
+
+.hasOtherInProgress .mapName {
+    font-size: 45px !important;
+}
+
+@keyframes panning {
+    0% {
+        background-position: 30% 50%;
+    }
+
+    100% {
+        background-position: 60% 50%;
+    }
+}

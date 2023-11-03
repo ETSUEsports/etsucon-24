@@ -1,0 +1,102 @@
+{
+    "control": [
+        {
+            "name": "antarctic_peninsula",
+            "label": "Antarctic Peninsula",
+            "image": "antarctic_peninsula.png"
+        },
+        {
+            "name": "busan",
+            "label": "Busan",
+            "image": "busan.png"
+        },
+        {
+            "name": "ilios",
+            "label": "Ilios",
+            "image": "ilios.png"
+        },
+        {
+            "name": "lijiang_tower",
+            "label": "Lijiang Tower",
+            "image": "lijiang_tower.png"
+        },
+        {
+            "name": "nepal",
+            "label": "Nepal",
+            "image": "nepal.png"
+        },
+        {
+            "name": "oasis",
+            "label": "Oasis",
+            "image": "oasis.png"
+        }
+    ],
+    "hybrid": [
+        {
+            "name": "eichenwalde",
+            "label": "Eichenwalde",
+            "image": "eichenwalde.png"
+        },
+        {
+            "name": "kings_row",
+            "label": "King's Row",
+            "image": "kings_row.png"
+        },
+        {
+            "name": "paraiso",
+            "label": "Paraiso",
+            "image": "paraiso.png"
+        }
+    ],
+    "flash": [
+        {
+            "name": "new_junk_city",
+            "label": "New Junk City",
+            "image": "new_junk_city.png"
+        },
+        {
+            "name": "suravasa",
+            "label": "Suravasa",
+            "image": "suravasa.png"
+        }
+    ],
+    "push": [
+        {
+            "name": "colosseo",
+            "label": "Colosseo",
+            "image": "colosseo.png"
+        },
+        {
+            "name": "new_queen_street",
+            "label": "New Queen Street",
+            "image": "new_queen_street.png"
+        },
+        {
+            "name": "esperanca",
+            "label": "Esperanca",
+            "image": "esperanca.png"
+        }
+    ],
+    "escort": [
+        {
+            "name": "circuit_royal",
+            "label": "Circuit Royal",
+            "image": "circuit_royal.png"
+        },
+        {
+            "name": "dorado",
+            "label": "Dorado",
+            "image": "dorado.png"
+        },
+        {
+            "name": "junkertown",
+            "label": "Junkertown",
+            "image": "junkertown.png"
+        },
+        {
+            "name": "route_66",
+            "label": "Route 66",
+            "image": "route_66.png"
+        }
+    ]
+}
