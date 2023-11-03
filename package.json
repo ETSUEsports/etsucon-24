@@ -29,6 +29,13 @@
         "headerColor": "#525F78"
       },
       {
+        "name": "bracket-ow",
+        "title": "Bracket - OW",
+        "fullbleed": true,
+        "file": "bracket-ow.html",
+        "headerColor": "#FA9C1D"
+      },
+      {
         "name": "overwatch",
         "title": "Overwatch",
         "fullbleed": true,
@@ -60,6 +67,13 @@
         "headerColor": "#FF4454"
       },
       {
+        "name": "ssbu",
+        "title": "SSBU",
+        "fullbleed": true,
+        "file": "ssbu.html",
+        "headerColor": "#FF4454"
+      },
+      {
         "name": "rl",
         "title": "Rocket League",
         "fullbleed": true,
@@ -70,6 +84,12 @@
     "graphics": [
       {
         "file": "index.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "bracket-ow.html",
         "width": 1920,
         "height": 1080,
         "singleInstance": false

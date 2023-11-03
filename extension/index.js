@@ -7,4 +7,5 @@ module.exports = function (nodecg) {
 	nodecg.log.info('Good luck!');
 
 	require('./overwatch')(nodecg);
+	require('./bracket-ow')(nodecg);
 };
