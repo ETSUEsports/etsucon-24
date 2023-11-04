@@ -110,6 +110,7 @@ div.score {
 }
 div.attack_defend_icon {
     background-color: #000000;
+    visibility: hidden;
     color: #ffffff;
     height: 50px;
     width: 54px;

@@ -167,6 +167,7 @@ body {
 }
 
 .b-row-winner > .team-logo{
-    width: 168px;
-    height: 168px;
+    width: 150px;
+    height: 150px;
+    margin-top: 10px;
 }
