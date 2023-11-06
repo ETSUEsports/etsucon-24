@@ -1,11 +1,12 @@
 const bracketOW = nodecg.Replicant('bracketOW');
+let globalTeams = nodecg.Replicant('globalTeams');
 
 // Listen for changes to the bracket.
 bracketOW.on('change', (newVal) => {
-    console.log(newVal);
+    // console.log(newVal);
     let i = 1;
     newVal.items.forEach(item => {
-        console.log(item);
+        // console.log(item);
         let localItem = JSON.parse(JSON.stringify(item));
         if (localItem.team1.name == "DEFAULT_TEAM_1") {
             const [previousTopMatch, previousBottomMatch] = getPreviousMatches(i);
@@ -35,7 +36,14 @@ bracketOW.on('change', (newVal) => {
         } else {
             localItem.team2.logo = `/assets/etsucon-24/ow-team-logos/${localItem.team2.logo}`;
         }
-        console.log(localItem);
+        // console.log(localItem);
+        // Find the team color from the global teams list.
+        nodecg.readReplicant('globalTeams', (globalTeams) => {
+            const team1 = globalTeams.find(team => team.name === localItem.team1.name);
+            if (team1) {
+                localItem.team1.color = team1.color;
+            }
+        });
         $(`#m${i}-t1-color`).css('background-color', localItem.team1.color);
         // Determine if color is contrasty with color math enough to use white text or black text.
         if (localItem.team1.color.match(/^#(?:[0-9a-f]{3}){1,2}$/i)) {
@@ -54,6 +62,12 @@ bracketOW.on('change', (newVal) => {
         $(`#m${i}-t1-logo`).attr('src', localItem.team1.logo);
         $(`#m${i}-t1-name`).text(localItem.team1.name);
         $(`#m${i}-t1-score`).text(localItem.team1.score);
+        nodecg.readReplicant('globalTeams', (globalTeams) => {
+            const team2 = globalTeams.find(team => team.name === localItem.team2.name);
+            if (team2) {
+                localItem.team2.color = team2.color;
+            }
+        });
         $(`#m${i}-t2-color`).css('background-color', localItem.team2.color);
         // Determine if color is contrasty with color math enough to use white text or black text.
         if (localItem.team2.color.match(/^#(?:[0-9a-f]{3}){1,2}$/i)) {
@@ -78,7 +92,7 @@ bracketOW.on('change', (newVal) => {
     // $("#winner-logo").attr('src', '/bundles/etsucon-24/graphics/img/bracket-ow/unknown-black.png');
 
     if (newVal.winner.name != "NO_TEAM") {
-        console.log(newVal.winner)
+        // // console.log(newVal.winner)
         $("#winner-logo").attr('src', `/assets/etsucon-24/ow-team-logos/${newVal.winner.logo}`);
         $(".b-row-winner").css('background-color', newVal.winner.color);
     } else {
@@ -103,3 +117,24 @@ function getPreviousMatches(i) {
 
     return previousMatches;
 }
+
+// Listen for changes to the global teams list.
+globalTeams.on('change', newVal => {
+    nodecg.readReplicant('bracketOW', (bracketOW) => {
+        let i = 1;
+        bracketOW.items.forEach(item => {
+            let localItem = JSON.parse(JSON.stringify(item));
+            const team1 = newVal.find(team => team.name === localItem.team1.name);
+            if (team1) {
+                localItem.team1.color = team1.color;
+            }
+            $(`#m${i}-t1-color`).css('background-color', localItem.team1.color);
+            const team2 = newVal.find(team => team.name === localItem.team2.name);
+            if (team2) {
+                localItem.team2.color = team2.color;
+            }
+            $(`#m${i}-t2-color`).css('background-color', localItem.team2.color);
+            i++;
+        });
+    });
+});

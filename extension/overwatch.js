@@ -1,15 +1,5 @@
-const multer = require('multer');
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, './assets/etsucon-24/ow-team-logos');
-    },
-    filename: function (req, file, cb) {
-        cb(null, file.originalname);
-    }
-});
 const fs = require('fs');
 
-const upload = multer({ storage: storage });
 module.exports = function (nodecg) {
 	nodecg.log.info("Overwatch Extension mounted!");
     const defaultLeftTeam = {name: 'Left Team', score: 0, color: '#000000', logo: ''};
@@ -70,7 +60,7 @@ module.exports = function (nodecg) {
     const owLeftTeam = nodecg.Replicant('owLeftTeam', {defaultValue: defaultLeftTeam});
     const owRightTeam = nodecg.Replicant('owRightTeam', {defaultValue: defaultRightTeam});
     const owMatchStats = nodecg.Replicant('owMatchStats', {defaultValue: defaultMatchStats});
-    const owTeams = nodecg.Replicant('owTeams', {defaultValue: []});
+    const globalTeams = nodecg.Replicant('globalTeams', {defaultValue: []});
 
     // Express router for the dashboard.
     const dashboardRouter = nodecg.Router();
@@ -86,28 +76,6 @@ module.exports = function (nodecg) {
 
     dashboardRouter.get('/ow/matchStats', (req, res) => {
         res.send(owMatchStats.value);
-    });
-
-    dashboardRouter.get('/ow/teams', (req, res) => {
-        res.send(owTeams.value);
-    });
-
-    dashboardRouter.post('/ow/team', upload.single("file"), (req, res) => {
-        let team = {name: '', logo:'', color: '#000000'};
-        team.name = req.body.name;
-        team.color = req.body.color;
-        console.log(req.file)
-        team.logo = req.file.originalname;
-        owTeams.value.push(team);
-        res.send(team);
-    });
-
-    dashboardRouter.delete('/ow/team', (req, res) => {
-        let team = owTeams.value.find(team => team.name == req.body.name);
-        owTeams.value.splice(owTeams.value.indexOf(team), 1);
-        // Delete the logo file.
-        fs.unlinkSync('./assets/etsucon-24/ow-team-logos/' + team.logo);
-        res.send(team);
     });
 
     dashboardRouter.post('/ow/reset', (req, res) => {
@@ -147,6 +115,6 @@ module.exports = function (nodecg) {
     });
 
     nodecg.listenFor('owDeleteAllTeams', (data) => {
-        owTeams.value = [];
+        globalTeams.value = [];
     });
 };

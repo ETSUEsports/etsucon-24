@@ -2,7 +2,7 @@
 const owLeftTeam = nodecg.Replicant('owLeftTeam');
 const owRightTeam = nodecg.Replicant('owRightTeam');
 const owMatchStats = nodecg.Replicant('owMatchStats');
-const owTeams = nodecg.Replicant('owTeams');
+const globalTeams = nodecg.Replicant('globalTeams');
 let controlMaps = [];
 let escortMaps = [];
 let flashMaps = [];
@@ -28,13 +28,11 @@ owMatchStats.on('change', newVal => {
     $('#matchMapNum').val(newVal.currentMap);
     $('#matchBO').val(newVal.bestOf);
     $('#matchMode').val(newVal.mode);
-    console.log(newVal.attacker);
     if (newVal.attacker == "left") {
         $('#attackerRadio1').prop('checked', true);
     } else {
         $('#attackerRadio2').prop('checked', true);
     }
-    console.log(newVal)
     newVal.maps.forEach(map => {
         $(`#map${map.map}tba`).prop('checked', map.tba);
         $(`#map${map.map}inprogress`).prop('checked', map.inprogress);
@@ -46,7 +44,7 @@ owMatchStats.on('change', newVal => {
     });
 });
 
-owTeams.on('change', newVal => {
+globalTeams.on('change', newVal => {
     $('#teamList').empty();
     newVal.forEach(team => {
         const card = `<div class="card card-team" style="width: 18rem;">
@@ -317,14 +315,14 @@ $('#swapSides').click(() => {
 });
 
 function setLeftTeam(teamName) {
-    const team = owTeams.value.find(team => team.name == teamName);
+    const team = globalTeams.value.find(team => team.name == teamName);
     owLeftTeam.value.name = team.name;
     owLeftTeam.value.logo = `/assets/etsucon-24/ow-team-logos/${team.logo}`;
     owLeftTeam.value.color = team.color;
 }
 
 function setRightTeam(teamName) {
-    const team = owTeams.value.find(team => team.name == teamName);
+    const team = globalTeams.value.find(team => team.name == teamName);
     owRightTeam.value.name = team.name;
     owRightTeam.value.logo = `/assets/etsucon-24/ow-team-logos/${team.logo}`;
     owRightTeam.value.color = team.color;

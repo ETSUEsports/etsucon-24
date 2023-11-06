@@ -1,9 +1,8 @@
 const bracketOW = nodecg.Replicant('bracketOW');
-const owTeams = nodecg.Replicant('owTeams');
+const globalTeams = nodecg.Replicant('globalTeams');
 
 // Listen for changes to the bracket.
 bracketOW.on('change', (newVal) => {
-    console.log(newVal);
     // Update forms with current data.
     for (let i = 1; i < 8; i++) {
         // Set the select option to the current team.
@@ -20,8 +19,7 @@ $("#resetBracketOW").click(() => {
     nodecg.sendMessage('bracketOWReset');
 });
 
-owTeams.on('change', (newVal) => {
-    console.log(newVal);
+globalTeams.on('change', (newVal) => {
     for (let i = 1; i < 8; i++) {
         $(`#m${i}-t1-name`).empty();
         $(`#m${i}-t2-name`).empty();
@@ -39,7 +37,6 @@ owTeams.on('change', (newVal) => {
         if (err) {
             console.error(err);
         }
-        console.log(data);
         for (let i = 1; i < 8; i++) {
             $(`#m${i}-t1-name`).val(data.items[i - 1].team1.name);
             $(`#m${i}-t2-name`).val(data.items[i - 1].team2.name);
@@ -95,7 +92,7 @@ $("#submitBracketOW").click(() => {
         return;
     }
 
-    const localTeams = JSON.parse(JSON.stringify(owTeams.value));
+    const localTeams = JSON.parse(JSON.stringify(globalTeams.value));
 
     localTeams.push({
         "name": "DEFAULT_TEAM_1",
@@ -152,8 +149,6 @@ $("#submitBracketOW").click(() => {
     }
 
     transformedData.winner = winner;
-
-    console.log(transformedData)
 
     bracketOW.value = transformedData;
 });

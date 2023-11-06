@@ -24,8 +24,17 @@
       {
         "name": "general",
         "title": "General",
-        "fullbleed": true,
+        "fullbleed": false,
+        "width": 3,
         "file": "general.html",
+        "headerColor": "#525F78"
+      },
+      {
+        "name": "teams",
+        "title": "Teams",
+        "fullbleed": false,
+        "width": 6,
+        "file": "teams.html",
         "headerColor": "#525F78"
       },
       {
@@ -43,7 +52,7 @@
         "headerColor": "#FA9C1D"
       },
       {
-        "name": "overwatch_new_team",
+        "name": "new_team",
         "title": "New Team",
         "width": 3,
         "dialog": true,
@@ -57,7 +66,7 @@
             "type": "dismiss"
           }
         ],
-        "file": "overwatch-new-team.html"
+        "file": "new-team.html"
       },
       {
         "name": "valorant",
