@@ -63,7 +63,7 @@
         "title": "Bracket - SSBU",
         "fullbleed": true,
         "file": "bracket-ssbu.html",
-        "headerColor": "#FF4454"
+        "headerColor": "#FF3837"
       },
       {
         "name": "overwatch",
@@ -94,14 +94,14 @@
         "title": "VALORANT",
         "fullbleed": true,
         "file": "valorant.html",
-        "headerColor": "#FF4454"
+        "headerColor": "#ff4454"
       },
       {
         "name": "ssbu",
         "title": "SSBU",
         "fullbleed": true,
         "file": "ssbu.html",
-        "headerColor": "#FF4454"
+        "headerColor": "#FF3837"
       },
       {
         "name": "rl",
