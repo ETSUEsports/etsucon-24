@@ -52,6 +52,13 @@
         "headerColor": "#FF4454"
       },
       {
+        "name": "bracket-rl",
+        "title": "Bracket - RL",
+        "fullbleed": true,
+        "file": "bracket-rl.html",
+        "headerColor": "#0054AB"
+      },
+      {
         "name": "overwatch",
         "title": "Overwatch",
         "fullbleed": true,
@@ -112,6 +119,12 @@
       },
       {
         "file": "bracket-val.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "bracket-rl.html",
         "width": 1920,
         "height": 1080,
         "singleInstance": false

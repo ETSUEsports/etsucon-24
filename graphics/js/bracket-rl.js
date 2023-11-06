@@ -1,8 +1,8 @@
-const bracketVAL = nodecg.Replicant('bracketVAL');
+const bracketRL = nodecg.Replicant('bracketRL');
 let globalTeams = nodecg.Replicant('globalTeams');
 
 // Listen for changes to the bracket.
-bracketVAL.on('change', (newVal) => {
+bracketRL.on('change', (newVal) => {
     // console.log(newVal);
     let i = 1;
     newVal.items.forEach(item => {
@@ -12,11 +12,11 @@ bracketVAL.on('change', (newVal) => {
             const [previousTopMatch, previousBottomMatch] = getPreviousMatches(i);
             if (previousTopMatch) {
                 localItem.team1.name = `Match ${previousTopMatch} Winner`;
-                localItem.team1.logo = '/bundles/etsucon-24/graphics/img/bracket-val/unknown.png'
+                localItem.team1.logo = '/bundles/etsucon-24/graphics/img/bracket-rl/unknown.png'
                 localItem.team1.score = "-"
             } else {
                 localItem.team1.name = "TBD";
-                localItem.team1.logo = '/bundles/etsucon-24/graphics/img/bracket-val/unknown.png'
+                localItem.team1.logo = '/bundles/etsucon-24/graphics/img/bracket-rl/unknown.png'
                 localItem.team1.score = "-"
             }
         } else{
@@ -26,11 +26,11 @@ bracketVAL.on('change', (newVal) => {
             const [previousTopMatch, previousBottomMatch] = getPreviousMatches(i);
             if (previousBottomMatch) {
                 localItem.team2.name = `Match ${previousBottomMatch} Winner`;
-                localItem.team2.logo = '/bundles/etsucon-24/graphics/img/bracket-val/unknown.png'
+                localItem.team2.logo = '/bundles/etsucon-24/graphics/img/bracket-rl/unknown.png'
                 localItem.team2.score = "-"
             } else {
                 localItem.team2.name = "TBD";
-                localItem.team2.logo = '/bundles/etsucon-24/graphics/img/bracket-val/unknown.png'
+                localItem.team2.logo = '/bundles/etsucon-24/graphics/img/bracket-rl/unknown.png'
                 localItem.team2.score = "-"
             }
         } else {
@@ -89,7 +89,7 @@ bracketVAL.on('change', (newVal) => {
         i++;
     });
 
-    // $("#winner-logo").attr('src', '/bundles/etsucon-24/graphics/img/bracket-val/unknown-black.png');
+    // $("#winner-logo").attr('src', '/bundles/etsucon-24/graphics/img/bracket-rl/unknown-black.png');
 
     if (newVal.winner.name != "NO_TEAM") {
         // // console.log(newVal.winner)
@@ -97,7 +97,7 @@ bracketVAL.on('change', (newVal) => {
         $(".b-row-winner").css('background-color', newVal.winner.color);
     } else {
         $(".b-row-winner").css('background-color', '#bbbbbb');
-        $("#winner-logo").attr('src', '/bundles/etsucon-24/graphics/img/bracket-val/unknown-black.png');
+        $("#winner-logo").attr('src', '/bundles/etsucon-24/graphics/img/bracket-rl/unknown-black.png');
     }
 });
 
@@ -120,9 +120,9 @@ function getPreviousMatches(i) {
 
 // Listen for changes to the global teams list.
 globalTeams.on('change', newVal => {
-    nodecg.readReplicant('bracketVAL', (bracketVAL) => {
+    nodecg.readReplicant('bracketRL', (bracketRL) => {
         let i = 1;
-        bracketVAL.items.forEach(item => {
+        bracketRL.items.forEach(item => {
             let localItem = JSON.parse(JSON.stringify(item));
             const team1 = newVal.find(team => team.name === localItem.team1.name);
             if (team1) {

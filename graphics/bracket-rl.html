@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" href="./css/bracket-rl.css" />
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+		<script  src="./js/bracket-rl.js"></script>
+	</head>
+	<body>
+		<div id="bracket">
+            <div id="b-col-1">
+                <div class="b-row">
+                    <div class="b-top" data-match="1">
+                        <span>Match 1</span>
+                    </div>
+                    <div class="b-team">
+                        <div id="m1-t1-color" class="b-team-color"></div>
+                        <img id="m1-t1-logo" class="team-logo" src="/assets/etsucon-24/global-team-logos/etsu_bucky.png"/>
+                        <span id="m1-t1-name" class="team-name">Team 1</span>
+                        <span id="m1-t1-score" class="team-score active">0</span>
+                    </div>
+                    <div class="b-team">
+                        <div id="m1-t2-color" class="b-team-color"></div>
+                        <img id="m1-t2-logo" class="team-logo" src="/assets/etsucon-24/global-team-logos/etsu_bucky.png"/>
+                        <span id="m1-t2-name" class="team-name">Team 2</span>
+                        <span id="m1-t2-score" class="team-score">0</span>
+                    </div>
+                </div>
+                <div class="b-row" data-match="2">
+                    <div class="b-top">
+                        <span>Match 2</span>
+                    </div>
+                    <div class="b-team">
+                        <div id="m2-t1-color" class="b-team-color"></div>
+                        <img id="m2-t1-logo" class="team-logo" src="/assets/etsucon-24/global-team-logos/etsu_bucky.png"/>
+                        <span id="m2-t1-name" class="team-name">Team 1</span>
+                        <span id="m2-t1-score" class="team-score">0</span>
+                    </div>
+                    <div class="b-team">
+                        <div id="m2-t2-color" class="b-team-color"></div>
+                        <img id="m2-t2-logo" class="team-logo" src="/assets/etsucon-24/global-team-logos/etsu_bucky.png"/>
+                        <span id="m2-t2-name" class="team-name">Team 2</span>
+                        <span id="m2-t2-score" class="team-score">0</span>
+                    </div>
+                </div>
+                <div class="b-row" data-match="3">
+                    <div class="b-top">
+                        <span>Match 3</span>
+                    </div>
+                    <div class="b-team">
+                        <div id="m3-t1-color" class="b-team-color"></div>
+                        <img id="m3-t1-logo" class="team-logo" src="/assets/etsucon-24/global-team-logos/etsu_bucky.png"/>
+                        <span id="m3-t1-name" class="team-name">Team 1</span>
+                        <span id="m3-t1-score" class="team-score">0</span>
+                    </div>
+                    <div class="b-team">
+                        <div id="m3-t2-color" class="b-team-color"></div>
+                        <img id="m3-t2-logo" class="team-logo" src="/assets/etsucon-24/global-team-logos/etsu_bucky.png"/>
+                        <span id="m3-t2-name" class="team-name">Team 2</span>
+                        <span id="m3-t2-score" class="team-score">0</span>
+                    </div>
+                </div>
+                <div class="b-row" data-match="3">
+                    <div class="b-top">
+                        <span>Match 4</span>
+                    </div>
+                    <div class="b-team">
+                        <div id="m4-t1-color" class="b-team-color"></div>
+                        <img id="m4-t1-logo" class="team-logo" src="/assets/etsucon-24/global-team-logos/etsu_bucky.png"/>
+                        <span id="m4-t1-name" class="team-name">Team 1</span>
+                        <span id="m4-t1-score" class="team-score">0</span>
+                    </div>
+                    <div class="b-team">
+                        <div id="m4-t2-color" class="b-team-color"></div>
+                        <img id="m4-t2-logo" class="team-logo" src="/assets/etsucon-24/global-team-logos/etsu_bucky.png"/>
+                        <span id="m4-t2-name" class="team-name">Team 2</span>
+                        <span id="m4-t2-score" class="team-score">0</span>
+                    </div>
+                </div>
+            </div>
+            <div id="b-col-2">
+                <div class="b-row" data-match="5">
+                    <div class="b-top">
+                        <span>Match 5</span>
+                    </div>
+                    <div class="b-team">
+                        <div id="m5-t1-color" class="b-team-color"></div>
+                        <img id="m5-t1-logo" class="team-logo" src="/assets/etsucon-24/global-team-logos/etsu_bucky.png"/>
+                        <span id="m5-t1-name" class="team-name">Team 1</span>
+                        <span id="m5-t1-score" class="team-score">0</span>
+                    </div>
+                    <div class="b-team">
+                        <div id="m5-t2-color" class="b-team-color"></div>
+                        <img id="m5-t2-logo" class="team-logo" src="/assets/etsucon-24/global-team-logos/etsu_bucky.png"/>
+                        <span id="m5-t2-name" class="team-name">Team 2</span>
+                        <span id="m5-t2-score" class="team-score">0</span>
+                    </div>
+                </div>
+                <div class="b-row" data-match="6">
+                    <div class="b-top">
+                        <span>Match 6</span>
+                    </div>
+                    <div class="b-team">
+                        <div id="m6-t1-color" class="b-team-color"></div>
+                        <img id="m6-t1-logo" class="team-logo" src="/assets/etsucon-24/global-team-logos/etsu_bucky.png"/>
+                        <span id="m6-t1-name" class="team-name">Team 1</span>
+                        <span id="m6-t1-score" class="team-score">0</span>
+                    </div>
+                    <div class="b-team">
+                        <div id="m6-t2-color" class="b-team-color"></div>
+                        <img id="m6-t2-logo" class="team-logo" src="/assets/etsucon-24/global-team-logos/etsu_bucky.png"/>
+                        <span id="m6-t2-name" class="team-name">Team 2</span>
+                        <span id="m6-t2-score" class="team-score">0</span>
+                    </div>
+                </div>
+            </div>
+            <div id="b-col-3">
+                <div class="b-row" data-match="7">
+                    <div class="b-top">
+                        <span>Finals</span>
+                    </div>
+                    <div class="b-team">
+                        <div id="m7-t1-color" class="b-team-color"></div>
+                        <img id="m7-t1-logo" class="team-logo" src="/assets/etsucon-24/global-team-logos/etsu_bucky.png"/>
+                        <span id="m7-t1-name" class="team-name">Team 1</span>
+                        <span id="m7-t1-score" class="team-score">0</span>
+                    </div>
+                    <div class="b-team">
+                        <div id="m7-t2-color" class="b-team-color"></div>
+                        <img id="m7-t2-logo" class="team-logo" src="/assets/etsucon-24/global-team-logos/etsu_bucky.png"/>
+                        <span id="m7-t2-name" class="team-name">Team 2</span>
+                        <span id="m7-t2-score" class="team-score">0</span>
+                    </div>
+                </div>
+            </div>
+            <div id="b-col-4">
+                <div class="b-row-winner">
+                    <img id="winner-logo" class="team-logo" src="/assets/etsucon-24/global-team-logos/etsu_bucky.png"/>
+                </div>
+            </div>
+		</div>
+	</body>
+</html>
