@@ -5,5 +5,6 @@ module.exports = function (nodecg) {
 	require('./bracket-ow')(nodecg);
 	require('./bracket-val')(nodecg);
 	require('./bracket-rl')(nodecg);
+	require('./bracket-ssbu')(nodecg);
 	require('./teams')(nodecg);
 };

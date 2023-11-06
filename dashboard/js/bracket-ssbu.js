@@ -1,8 +1,8 @@
-const bracketOW = nodecg.Replicant('bracketOW');
+const bracketSSBU = nodecg.Replicant('bracketSSBU');
 const globalTeams = nodecg.Replicant('globalTeams');
 
 // Listen for changes to the bracket.
-bracketOW.on('change', (newVal) => {
+bracketSSBU.on('change', (newVal) => {
     // Update forms with current data.
     for (let i = 1; i < 8; i++) {
         // Set the select option to the current team.
@@ -15,11 +15,11 @@ bracketOW.on('change', (newVal) => {
     $('#gc-t1-score').val(newVal.winner.score);
 });
 
-$("#resetBracketOW").click(() => {
+$("#resetBracketSSBU").click(() => {
     if(!confirm("Are you sure you want to reset the bracket?")) {
         return;
     }
-    nodecg.sendMessage('bracketOWReset');
+    nodecg.sendMessage('bracketSSBUReset');
 });
 
 globalTeams.on('change', (newVal) => {
@@ -36,7 +36,7 @@ globalTeams.on('change', (newVal) => {
             $('#gc-t1-name').append(`<option value="${newVal[j].name}">${newVal[j].name}</option>`);
         }
     }
-    nodecg.readReplicant('bracketOW', (data, err) => {
+    nodecg.readReplicant('bracketSSBU', (data, err) => {
         if (err) {
             console.error(err);
         }
@@ -49,7 +49,7 @@ globalTeams.on('change', (newVal) => {
     });
 });
 
-$("#submitBracketOW").click(() => {
+$("#submitBracketSSBU").click(() => {
     // Validate the data.
     // Rules:
     // 1. The same team cannot be selected twice in the same match.
@@ -99,13 +99,13 @@ $("#submitBracketOW").click(() => {
 
     localTeams.push({
         "name": "DEFAULT_TEAM_1",
-        "logo": "/bundles/etsucon-24/graphics/img/bracket-ow/unknown.png",
+        "logo": "/bundles/etsucon-24/graphics/img/bracket-ssbu/unknown.png",
         "color": "#bbbbbb"
     });
 
     localTeams.push({
         "name": "DEFAULT_TEAM_2",
-        "logo": "/bundles/etsucon-24/graphics/img/bracket-ow/unknown.png",
+        "logo": "/bundles/etsucon-24/graphics/img/bracket-ssbu/unknown.png",
         "color": "#bbbbbb"
     });
 
@@ -146,12 +146,14 @@ $("#submitBracketOW").click(() => {
         winner.color = localTeams.find((team) => team.name === winner.name).color;
         winner.score = $('#gc-t1-score').val();
     } else {
-        winner.logo = "/bundles/etsucon-24/graphics/img/bracket-ow/unknown-black.png";
+        winner.logo = "/bundles/etsucon-24/graphics/img/bracket-ssbu/unknown-black.png";
         winner.color = "#bbbbbb";
         winner.score = 0;
     }
 
     transformedData.winner = winner;
 
-    bracketOW.value = transformedData;
+    console.log(transformedData)
+
+    bracketSSBU.value = transformedData;
 });

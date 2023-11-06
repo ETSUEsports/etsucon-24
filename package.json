@@ -59,6 +59,13 @@
         "headerColor": "#0054AB"
       },
       {
+        "name": "bracket-ssbu",
+        "title": "Bracket - SSBU",
+        "fullbleed": true,
+        "file": "bracket-ssbu.html",
+        "headerColor": "#FF4454"
+      },
+      {
         "name": "overwatch",
         "title": "Overwatch",
         "fullbleed": true,
@@ -119,6 +126,12 @@
       },
       {
         "file": "bracket-val.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "bracket-ssbu.html",
         "width": 1920,
         "height": 1080,
         "singleInstance": false

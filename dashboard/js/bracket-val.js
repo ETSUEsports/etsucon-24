@@ -16,6 +16,9 @@ bracketVAL.on('change', (newVal) => {
 });
 
 $("#resetBracketVAL").click(() => {
+    if(!confirm("Are you sure you want to reset the bracket?")) {
+        return;
+    }
     nodecg.sendMessage('bracketVALReset');
 });
 

@@ -66,13 +66,11 @@ globalTeams.on('change', newVal => {
 
 // When #reset is clicked, send a message to the extension to reset the replicants.
 $('#resetReplicants').click(() => {
+    if(!confirm("Are you sure you want to reset the overlay?")) {
+        return;
+    }
     nodecg.sendMessage('owReset');
 });
-
-$('#deleteAllTeams').click(() => {
-    nodecg.sendMessage('owDeleteAllTeams');
-});
-
 
 $('#updateReplicants').click(() => {
     // Verify data first, here are the rules:
