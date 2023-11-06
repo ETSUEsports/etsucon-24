@@ -5,7 +5,7 @@ globalTeams.on('change', newVal => {
     newVal.forEach(team => {
         const card = `<div class="card card-team" style="width: 18rem;">
         <div class="card-body">
-        <img src="/assets/etsucon-24/ow-team-logos/${team.logo}" class="card-img-top card-team-logo">
+        <img src="/assets/etsucon-24/global-team-logos/${team.logo}" class="card-img-top card-team-logo">
         <h5 class="card-title">${team.name}</h5>
         ${team.color}<br>
         <button type="button" onclick="deleteTeam('${team.name}');" class="btn btn-danger">Delete</button> <button class="btn btn-primary" type="button" onclick="editTeam('${team.name}');">Edit</button>

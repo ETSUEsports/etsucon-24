@@ -51,7 +51,7 @@ globalTeams.on('change', newVal => {
         <div class="card-body">
         <div class="row">
         <div class="col-6">
-        <img src="/assets/etsucon-24/ow-team-logos/${team.logo}" class="card-img-top card-team-logo">
+        <img src="/assets/etsucon-24/global-team-logos/${team.logo}" class="card-img-top card-team-logo">
         </div>
         <div class="col-6">
         <h5 class="card-title">${team.name}</h5>
@@ -317,14 +317,14 @@ $('#swapSides').click(() => {
 function setLeftTeam(teamName) {
     const team = globalTeams.value.find(team => team.name == teamName);
     owLeftTeam.value.name = team.name;
-    owLeftTeam.value.logo = `/assets/etsucon-24/ow-team-logos/${team.logo}`;
+    owLeftTeam.value.logo = `/assets/etsucon-24/global-team-logos/${team.logo}`;
     owLeftTeam.value.color = team.color;
 }
 
 function setRightTeam(teamName) {
     const team = globalTeams.value.find(team => team.name == teamName);
     owRightTeam.value.name = team.name;
-    owRightTeam.value.logo = `/assets/etsucon-24/ow-team-logos/${team.logo}`;
+    owRightTeam.value.logo = `/assets/etsucon-24/global-team-logos/${team.logo}`;
     owRightTeam.value.color = team.color;
 }
 

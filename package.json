@@ -45,6 +45,13 @@
         "headerColor": "#FA9C1D"
       },
       {
+        "name": "bracket-val",
+        "title": "Bracket - VAL",
+        "fullbleed": true,
+        "file": "bracket-val.html",
+        "headerColor": "#FF4454"
+      },
+      {
         "name": "overwatch",
         "title": "Overwatch",
         "fullbleed": true,
@@ -104,6 +111,12 @@
         "singleInstance": false
       },
       {
+        "file": "bracket-val.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
         "file": "ow-ingame.html",
         "width": 1920,
         "height": 1080,
@@ -118,7 +131,7 @@
     ],
     "assetCategories": [
       {
-        "name": "ow-team-logos",
+        "name": "global-team-logos",
         "title": "Square logos",
         "allowedTypes": [
           "jpg",

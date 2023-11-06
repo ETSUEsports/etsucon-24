@@ -1,7 +1,7 @@
 const multer = require('multer');
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, './assets/etsucon-24/ow-team-logos');
+        cb(null, './assets/etsucon-24/global-team-logos');
     },
     filename: function (req, file, cb) {
         cb(null, file.originalname);
@@ -40,7 +40,7 @@ module.exports = function (nodecg) {
         let team = globalTeams.value.find(team => team.name == req.body.name);
         globalTeams.value.splice(globalTeams.value.indexOf(team), 1);
         // Delete the logo file.
-        fs.unlinkSync('./assets/etsucon-24/ow-team-logos/' + team.logo);
+        fs.unlinkSync('./assets/etsucon-24/global-team-logos/' + team.logo);
         res.send(team);
     });
 

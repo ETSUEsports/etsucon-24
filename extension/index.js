@@ -3,5 +3,6 @@ module.exports = function (nodecg) {
 
 	require('./overwatch')(nodecg);
 	require('./bracket-ow')(nodecg);
+	require('./bracket-val')(nodecg);
 	require('./teams')(nodecg);
 };

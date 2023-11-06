@@ -1,0 +1,180 @@
+:root {
+    --blue: #27D4FC;
+    --red: #EE2F51;
+    --transparent-black: rgba(0, 0, 0, 0.8);
+    --name-ad: 411px;
+    --name-score: 465px;
+}
+@font-face {
+    font-family: Fyrste;
+    src: url("../fonts/fyrste.ttf") format("truetype");
+}
+body {
+    font-family: Fyrste;
+    overflow: hidden;
+    text-transform: lowercase;
+}
+
+#bracket{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-image: urL("../ingameimg/8TeamBracket.drawio.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    display: flex;
+    flex-direction: row;
+}
+
+#b-col-1{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    width: 396px;
+    height: 815px;
+    top: 192px;
+    left: 36px;
+}
+
+#b-col-2{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    width: 396px;
+    height: 600px;
+    top: 300px;
+    left: 564px;
+}
+
+#b-col-3{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    width: 396px;
+    height: 168px;
+    top: 504px;
+    left: 1104px;
+}
+
+#b-col-4{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    width: 168px;
+    height: 168px;
+    top: 504px;
+    left: 1656px;
+}
+
+.b-row{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 168px;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.b-top{
+    width: 100%;
+    height: 30px;
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 30px;
+    text-align: left;
+}
+
+.b-top > span{
+    margin-left: 10px;
+}
+
+.b-team{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    height: 69px;
+}
+
+.b-team > .team-logo{
+    width: 65px;
+    height: 65px;
+    margin-left: 10px;
+    margin-top: 2px;
+    z-index: 3;
+}
+
+.b-team > .team-name{
+    width: 220px;
+    height: 69px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 40px;
+    text-align: left;
+    z-index: 2;
+}
+
+.b-team > .team-score{
+    width: 65px;
+    height: 69px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    text-align: center;
+    z-index: 2;
+}
+
+.b-team > .b-team-color{
+    width: 100%;
+    height: 69px;
+    position: absolute;
+    z-index: 1;
+    background-color: #00153e;
+    -webkit-clip-path: polygon(0 0, 85% 0%, 82% 100%, 0% 100%);
+    clip-path: polygon(0 0, 85% 0%, 82% 100%, 0% 100%);
+}
+
+.b-row-winner{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 168px;
+    background-color: #ffffff;
+}
+
+.b-row-winner > .team-logo{
+    width: 150px;
+    height: 150px;
+    margin-top: 10px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+

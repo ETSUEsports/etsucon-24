@@ -20,7 +20,7 @@ bracketOW.on('change', (newVal) => {
                 localItem.team1.score = "-"
             }
         } else{
-            localItem.team1.logo = `/assets/etsucon-24/ow-team-logos/${localItem.team1.logo}`;
+            localItem.team1.logo = `/assets/etsucon-24/global-team-logos/${localItem.team1.logo}`;
         }
         if (localItem.team2.name == "DEFAULT_TEAM_2") {
             const [previousTopMatch, previousBottomMatch] = getPreviousMatches(i);
@@ -34,7 +34,7 @@ bracketOW.on('change', (newVal) => {
                 localItem.team2.score = "-"
             }
         } else {
-            localItem.team2.logo = `/assets/etsucon-24/ow-team-logos/${localItem.team2.logo}`;
+            localItem.team2.logo = `/assets/etsucon-24/global-team-logos/${localItem.team2.logo}`;
         }
         // console.log(localItem);
         // Find the team color from the global teams list.
@@ -93,7 +93,7 @@ bracketOW.on('change', (newVal) => {
 
     if (newVal.winner.name != "NO_TEAM") {
         // // console.log(newVal.winner)
-        $("#winner-logo").attr('src', `/assets/etsucon-24/ow-team-logos/${newVal.winner.logo}`);
+        $("#winner-logo").attr('src', `/assets/etsucon-24/global-team-logos/${newVal.winner.logo}`);
         $(".b-row-winner").css('background-color', newVal.winner.color);
     } else {
         $(".b-row-winner").css('background-color', '#bbbbbb');
